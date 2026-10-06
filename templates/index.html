@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio · {{ app_name }}{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Tu biblioteca personal</h1>
+    <p class="hero-sub">
+      {{ total_books }} libros organizados en {{ categories|length }} temas.
+      Usa el buscador de arriba para encontrar cualquier título al instante.
+    </p>
+  </div>
+</section>
+
+<section class="categories">
+  <h2 class="section-title">Categorías</h2>
+  <div class="category-grid">
+    {% for cat in categories %}
+      <a class="category-card" href="{{ url_for('category_view', slug=cat.slug) }}">
+        <div class="category-icon">{{ cat.icon or '📁' }}</div>
+        <div class="category-body">
+          <h3 class="category-name">{{ cat.name }}</h3>
+          <p class="category-desc">{{ cat.description or 'Sin descripción.' }}</p>
+          <div class="category-meta">
+            <span class="badge">{{ counts[cat.id] }} libro{{ '' if counts[cat.id] == 1 else 's' }}</span>
+          </div>
+        </div>
+        <span class="category-arrow" aria-hidden="true">→</span>
+      </a>
+    {% else %}
+      <div class="empty">
+        <p>Aún no hay categorías. Agrégalas en el archivo seed.py y vuelve a publicar.</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

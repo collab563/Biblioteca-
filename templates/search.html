@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Buscar · {{ app_name }}{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="breadcrumbs">
+    <a href="{{ url_for('index') }}">Inicio</a>
+    <span class="sep">›</span>
+    <span>Búsqueda</span>
+  </div>
+  <h1 id="search-heading">Busca en tu biblioteca</h1>
+  <p class="muted" id="search-count" aria-live="polite"></p>
+</section>
+
+<section class="book-grid" id="search-results" aria-live="polite"></section>
+{% endblock %}

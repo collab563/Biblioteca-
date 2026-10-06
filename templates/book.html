@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.title }} · {{ app_name }}{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="breadcrumbs">
+    <a href="{{ url_for('index') }}">Inicio</a>
+    <span class="sep">›</span>
+    <a href="{{ url_for('category_view', slug=book.category.slug) }}">{{ book.category.name }}</a>
+    <span class="sep">›</span>
+    <span>{{ book.title }}</span>
+  </div>
+</section>
+
+<article class="book-detail">
+  <div class="book-detail-cover">
+    {% if book.cover_url %}
+      <img src="{{ book.cover_url }}" alt="Portada de {{ book.title }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <span class="cover-fallback-big" style="display:none;">{{ book.title[0]|upper }}</span>
+    {% else %}
+      <span class="cover-fallback-big">{{ book.title[0]|upper }}</span>
+    {% endif %}
+  </div>
+
+  <div class="book-detail-body">
+    <h1>{{ book.title }}</h1>
+    <p class="book-author-big">de <strong>{{ book.author }}</strong></p>
+
+    <div class="book-detail-tags">
+      <span class="status status-{{ book.status }}">{{ book.status_icon() }} {{ book.status_label() }}</span>
+      <a class="badge-link" href="{{ url_for('category_view', slug=book.category.slug) }}">
+        {{ book.category.icon }} {{ book.category.name }}
+      </a>
+    </div>
+
+    {% if book.synopsis %}
+      <div class="synopsis">
+        <h3>Sinopsis</h3>
+        <p>{{ book.synopsis }}</p>
+      </div>
+    {% endif %}
+
+    <dl class="book-attrs">
+      {% if book.year %}<div><dt>Año</dt><dd>{{ book.year }}</dd></div>{% endif %}
+      {% if book.publisher %}<div><dt>Editorial</dt><dd>{{ book.publisher }}</dd></div>{% endif %}
+      {% if book.isbn %}<div><dt>ISBN</dt><dd>{{ book.isbn }}</dd></div>{% endif %}
+      <div><dt>Categoría</dt><dd>{{ book.category.name }}</dd></div>
+      <div><dt>Agregado</dt><dd>{{ book.created_at.strftime('%Y-%m-%d') }}</dd></div>
+    </dl>
+
+  </div>
+</article>
+{% endblock %}

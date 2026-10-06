@@ -1,0 +1,3 @@
+# Esta carpeta se usa para almacenar la base de datos SQLite.
+# El archivo `biblioteca.db` se genera automáticamente la primera vez que
+# ejecutás `python app.py` y queda ignorado por git.

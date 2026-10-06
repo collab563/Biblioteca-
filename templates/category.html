@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ category.name }} · {{ app_name }}{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="breadcrumbs">
+    <a href="{{ url_for('index') }}">Inicio</a>
+    <span class="sep">›</span>
+    <span>{{ category.name }}</span>
+  </div>
+  <div class="page-header-main">
+    <span class="big-emoji">{{ category.icon or '📁' }}</span>
+    <div>
+        <h1>{{ category.name }}</h1>
+        <p class="muted">{{ category.description or '' }}</p>
+        <span class="badge">{{ books|length }} libro{{ '' if books|length == 1 else 's' }}</span>
+      </div>
+  </div>
+</section>
+
+<section class="book-grid">
+  {% for book in books %}
+    <a class="book-card" href="{{ url_for('book_detail', book_id=book.id) }}">
+      <div class="book-cover">
+        {% if book.cover_url %}
+          <img src="{{ book.cover_url }}" alt="Portada de {{ book.title }}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="cover-fallback" style="display:none;">{{ book.title[0]|upper }}</span>
+        {% else %}
+          <span class="cover-fallback">{{ book.title[0]|upper }}</span>
+        {% endif %}
+      </div>
+      <div class="book-meta">
+        <h3 class="book-title">{{ book.title }}</h3>
+        <p class="book-author">{{ book.author }}</p>
+        <div class="book-tags">
+          <span class="status status-{{ book.status }}">
+            {{ book.status_icon() }} {{ book.status_label() }}
+          </span>
+          {% if book.year %}<span class="year">{{ book.year }}</span>{% endif %}
+        </div>
+      </div>
+    </a>
+  {% else %}
+    <div class="empty">
+      <p>Todavía no hay libros en esta categoría.</p>
+    </div>
+  {% endfor %}
+</section>
+{% endblock %}
