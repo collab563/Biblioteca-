@@ -7,7 +7,7 @@ from pathlib import Path
 from flask import Flask, render_template, url_for as flask_url_for
 
 from models import Book, Category, db
-from seed import seed_database
+from seed import BOOK_GALLERY, seed_database
 
 
 ROOT = Path(__file__).resolve().parent
@@ -26,6 +26,10 @@ def create_app():
     @app.template_global()
     def url_for(endpoint, **values):
         return flask_url_for(endpoint, **values).lstrip('/')
+
+    @app.template_global()
+    def book_gallery(book):
+        return BOOK_GALLERY.get(book.isbn, [])
 
     @app.context_processor
     def inject_globals():

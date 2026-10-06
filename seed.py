@@ -23,23 +23,14 @@ CATEGORIES = [
 # 28 libros inventados, distribuidos en categorías.
 # Tuplas: (título, autor, año, editorial, isbn, sinopsis, estado, categoría)
 BOOKS = [
-    # --- Matemáticas (5) ---
-    (
-        'Cálculo de una variable',
-        'James Stewart',
-        2015,
-        'Cengage',
-        '9781285741550',
-        'Texto clásico de cálculo diferencial e integral para los primeros cursos universitarios. Cubre límites, derivadas, integrales y series.',
-        'leyendo',
-        'Matemáticas',
-    ),
+    # --- Matemáticas (1) ---
+
     (
         'Álgebra lineal',
         'Stanley I. Grossman y Jose Job Flores Godoy',
         2012,
         'McGraw-Hill',
-        '9786071507600',
+        '11',
         '',
         'leyendo',
         'Matemáticas',
@@ -49,27 +40,18 @@ BOOKS = [
         'Thomas Jech',
         1978,
         'Academic Press',
-        '0123819504',
+        '12',
         '',
         'leyendo',
         'Matemáticas',
     ),
-    (
-        'El hombre que calculaba',
-        'Malba Tahan',
-        1949,
-        'Plutón',
-        '9789501515950',
-        'Las aventuras matemáticas de Beremiz Samir en el Bagdad del siglo XIII. Un clásico lleno de acertijos.',
-        'leido',
-        'Matemáticas',
-    ),
+
     (
         'Teoría de conjuntos',
         'Paul R. Halmos',
         1960,
         'Springer',
-        '9780387900946',
+        '13',
         'Tratado axiomático riguroso de conjuntos y su estructura. Pieza fundamental para estudiantes de matemática.',
         'por_leer',
         'Matemáticas',
@@ -79,29 +61,38 @@ BOOKS = [
         'Carlos Ivorra Castillo',
         2001,
         '',
-        '',
+        '14',
         '',
         'por_leer',
         'Matemáticas',
     ),
     (
         'Álgebra Preuniversitaria la Enciclopedia',
-        'Carlos Ivorra Castillo',
+        'Autor Desconocido',
         2012,
         'Rubiños',
-        '',
+        '15',
         '',
         'por_leer',
         'Matemáticas',
     ),
-
-    # --- Biología (4) ---
+    (
+        'Tablas Estadísticas',
+        'Pedro Diaz B.',
+        2018,
+        'H & V Impresiones SAC',
+        '16',
+        '',
+        'por_leer',
+        'Matemáticas',
+    ),
+    # --- Biología (2) ---
     (
         'El gen egoísta',
         'Richard Dawkins',
         1976,
         'Oxford University Press',
-        '9780198788607',
+        '21',
         'Los genes como unidades centrales de la selección natural. Una mirada evolucionista y provocadora.',
         'leido',
         'Biología',
@@ -111,39 +102,18 @@ BOOKS = [
         'Stephen Jay Gould',
         2002,
         'Belknap Press',
-        '9780674005863',
+        '22',
         'Reformulación de la síntesis moderna de la evolución con conceptos como el equilibrio puntuado.',
         'por_leer',
         'Biología',
     ),
-    (
-        'El origen de las especies',
-        'Charles Darwin',
-        1859,
-        'John Murray',
-        '9780451529060',
-        'La obra fundamental de la biología evolutiva. Selección natural y variabilidad.',
-        'leido',
-        'Biología',
-    ),
-    (
-        'La doble hélice',
-        'James D. Watson',
-        1968,
-        'Atheneum',
-        '9780743216302',
-        'Memorias del descubrimiento de la estructura del ADN, contadas en primera persona.',
-        'leyendo',
-        'Biología',
-    ),
-
-    # --- Física (4) ---
+    # --- Física (3) ---
     (
         'Física para ciencias e ingeniería',
         'Raymond A. Serway',
         2018,
         'Cengage',
-        '9781337558276',
+        '31',
         'Texto estándar de física general universitaria: mecánica, termodinámica, ondas y electromagnetismo.',
         'leyendo',
         'Física',
@@ -153,39 +123,20 @@ BOOKS = [
         'Stephen Hawking',
         1988,
         'Bantam',
-        '9780557620593',
+        '32',
         'Cosmología accesible sobre el universo, los agujeros negros y la flecha del tiempo.',
         'leido',
         'Física',
     ),
-    (
-        'La elegancia del universo',
-        'Brian Greene',
-        1999,
-        'W. W. Norton',
-        '9780393058584',
-        'La teoría de cuerdas y la búsqueda de la teoría unificada de la física.',
-        'por_leer',
-        'Física',
-    ),
-    (
-        'El carácter de la ley física',
-        'Richard Feynman',
-        1965,
-        'BBC',
-        '9780465023828',
-        'Conferencias televisadas sobre la naturaleza de las leyes que gobiernan el universo.',
-        'por_leer',
-        'Física',
-    ),
 
-    # --- Química (3) ---
+
+    # --- Química (4) ---
     (
         'Química general',
         'Raymond Chang',
         2010,
         'McGraw-Hill',
-        '9780073402680',
+        '41',
         'Texto introductorio de química general universitaria: estructura atómica, enlaces y reacciones.',
         'leyendo',
         'Química',
@@ -195,29 +146,18 @@ BOOKS = [
         'Sam Kean',
         2010,
         'Little Brown',
-        '9780316051658',
+        '42',
         'Anécdotas curiosas y fascinantes sobre los elementos de la tabla periódica.',
         'leido',
         'Química',
     ),
-    (
-        'Despertares',
-        'Oliver Sacks',
-        1973,
-        'Duckworth',
-        '9780330316910',
-        'Historias clínicas de pacientes tratados con L-DOPA. Aunque sea neurociencia, la química está al centro.',
-        'por_leer',
-        'Química',
-    ),
-
-    # --- Historia (3) ---
+    # --- Historia (5) ---
     (
         'Sapiens: de animales a dioses',
         'Yuval Noah Harari',
         2011,
         'Debate',
-        '9788499926223',
+        '51',
         'Historia de la humanidad desde la revolución cognitiva hasta la era moderna.',
         'leido',
         'Historia',
@@ -227,23 +167,12 @@ BOOKS = [
         'Yuval Noah Harari',
         2015,
         'Debate',
-        '9788499926711',
+        '52',
         'Una mirada al futuro de la humanidad cuando los desafíos tradicionales se vuelven opcionales.',
         'por_leer',
         'Historia',
     ),
-    (
-        'El diario de Ana Frank',
-        'Ana Frank',
-        1947,
-        'Contacto',
-        '9789685208555',
-        'Testimonio íntimo de la persecución nazi contado por una adolescente en Amsterdam.',
-        'leido',
-        'Historia',
-    ),
-
-    # --- Literatura (4) ---
+    # --- Literatura (6) ---
     (
         'Cien años de soledad',
         'Gabriel García Márquez',
@@ -264,28 +193,8 @@ BOOKS = [
         'leido',
         'Literatura',
     ),
-    (
-        'El Principito',
-        'Antoine de Saint-Exupéry',
-        1943,
-        'Reynal & Hitchcock',
-        '9780156013986',
-        'Filosófica novela corta ilustrada sobre la amistad, el amor y lo esencialmente importante.',
-        'leido',
-        'Literatura',
-    ),
-    (
-        'La metamorfosis',
-        'Franz Kafka',
-        1915,
-        'Kurt Wolff Verlag',
-        '9780553213603',
-        'Gregor Samsa amanece convertido en un monstruoso insecto. Una alegoría brutal sobre la alienación.',
-        'por_leer',
-        'Literatura',
-    ),
 
-    # --- Filosofía (3) ---
+    # --- Filosofía (7) ---
     (
         'El mundo y sus demonios',
         'Carl Sagan',
@@ -296,59 +205,30 @@ BOOKS = [
         'leyendo',
         'Filosofía',
     ),
+
+    # --- Programación (8) ---
     (
-        'Meditaciones',
-        'Marco Aurelio',
-        180,
-        'Antonine Press',
-        '9780812968255',
-        'Reflexiones estoicas del emperador romano. Un manual de vida personal con 1800 años de vigencia.',
-        'leido',
-        'Filosofía',
-    ),
-    (
-        'La República',
-        'Platón',
-        -380,
-        'Academia',
-        '9780140455113',
-        'Diálogo sobre el Estado ideal, la justicia y la naturaleza del alma. Base de la filosofía política.',
-        'por_leer',
-        'Filosofía',
+        'Algoritmnos: Análisis y diseño',
+        'Eduardo Raffo Lecca',
+        1999,
+        'Chacoya',
+        '81',
+        '',
+        'leyendo',
+        'Programación',
     ),
 
-    # --- Programación (3) ---
-    (
-        'Clean Code',
-        'Robert C. Martin',
-        2008,
-        'Prentice Hall',
-        '9780132350884',
-        'Manual para programadores sobre la artesanía del código limpio: nombres, funciones, comentarios y formato.',
-        'leyendo',
-        'Programación',
-    ),
-    (
-        'The Pragmatic Programmer',
-        'David Thomas',
-        2019,
-        'Addison-Wesley',
-        '9780135957059',
-        'Tu viaje a la maestría, con consejos prácticos del oficio y un sinfín de analogías memorables.',
-        'por_leer',
-        'Programación',
-    ),
-    (
-        'Designing Data-Intensive Applications',
-        'Martin Kleppmann',
-        2017,
-        'O\'Reilly',
-        '9781449373320',
-        'Las claves para diseñar sistemas de datos modernos: bases, colas, streams, consistencia y escalabilidad.',
-        'leyendo',
-        'Programación',
-    ),
 ]
+
+# Rutas relativas a static/, agrupadas por ISBN.
+BOOK_GALLERY = {
+    '11': ['img/ghgjfg.png'],
+    '12': ['img/ghgjfg.png'],
+    '16': ['img/16A.jpeg', 'img/16B.jpeg', 'img/16C.jpeg'],
+    '81': ['img/81A.jpeg', 'img/81B.jpeg','img/81C.jpeg'],
+
+    
+}
 
 
 def seed_database(app):

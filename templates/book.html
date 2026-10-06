@@ -51,4 +51,45 @@
 
   </div>
 </article>
+
+<section class="book-gallery" aria-labelledby="book-gallery-title">
+  <h2 id="book-gallery-title">Imágenes del libro</h2>
+  {% set images = book_gallery(book) %}
+  {% if images %}
+    <div class="book-gallery-grid">
+      {% for image_path in images %}
+        {% set image_url = url_for('static', filename=image_path) %}
+        <button
+          class="book-gallery-item"
+          type="button"
+          data-image="{{ image_url }}"
+          data-alt="{{ book.title }} — imagen {{ loop.index }}"
+          aria-label="Ampliar imagen {{ loop.index }} de {{ book.title }}"
+        >
+          <img src="{{ image_url }}" alt="{{ book.title }} — imagen {{ loop.index }}" loading="lazy" decoding="async">
+        </button>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="book-gallery-empty">Aún no hay imágenes para este libro.</p>
+  {% endif %}
+</section>
+
+{% if images %}
+<dialog class="book-lightbox" id="book-lightbox" aria-labelledby="book-lightbox-title">
+  <h2 class="visually-hidden" id="book-lightbox-title">Visor de imágenes del libro</h2>
+  <button class="book-lightbox-close" id="book-lightbox-close" type="button" aria-label="Cerrar imágenes">×</button>
+  <div class="book-lightbox-zoom" role="group" aria-label="Controles de zoom">
+    <button id="book-lightbox-zoom-out" type="button" aria-label="Alejar imagen">−</button>
+    <button id="book-lightbox-zoom-reset" type="button" aria-label="Restablecer zoom">100%</button>
+    <button id="book-lightbox-zoom-in" type="button" aria-label="Acercar imagen">+</button>
+  </div>
+  <div class="book-lightbox-stage" id="book-lightbox-stage">
+    <button class="book-lightbox-arrow book-lightbox-previous" id="book-lightbox-previous" type="button" aria-label="Ver imagen anterior">‹</button>
+    <img class="book-lightbox-image" id="book-lightbox-image" alt="">
+    <button class="book-lightbox-arrow book-lightbox-next" id="book-lightbox-next" type="button" aria-label="Ver imagen siguiente">›</button>
+  </div>
+  <p class="book-lightbox-count" id="book-lightbox-count" aria-live="polite"></p>
+</dialog>
+{% endif %}
 {% endblock %}

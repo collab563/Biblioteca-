@@ -32,6 +32,34 @@ categoría existente. Para agregar una categoría, añade una tupla a `CATEGORIE
 el formato `(nombre, slug, icono, descripción)`. Guarda y sube los cambios a `main`;
 GitHub Actions actualizará la página.
 
+### Agregar imágenes a la ficha de un libro
+
+Las páginas de GitHub Pages son estáticas: las imágenes se agregan al proyecto y se
+publican al subir los cambios a `main`; no se cargan desde un formulario de la web.
+
+1. Crea una carpeta dentro de `static/img/books/`, por ejemplo
+   `static/img/books/9780198788607/`, y copia allí las imágenes.
+2. En `seed.py`, añade sus rutas a `BOOK_GALLERY`, usando el ISBN del libro como clave.
+   Las rutas se escriben relativas a `static/`:
+
+   ```python
+   BOOK_GALLERY = {
+       '9780198788607': [
+           'img/books/9780198788607/portada.jpg',
+           'img/books/9780198788607/pagina-interior.jpg',
+       ],
+   }
+   ```
+
+3. Ejecuta `python app.py` para comprobarlo localmente y sube los cambios a `main`.
+
+La sección **Imágenes del libro** aparece debajo de cada ficha. Si no hay imágenes
+configuradas para un libro, muestra un mensaje indicando que aún no tiene imágenes.
+Selecciona una imagen para ampliarla; cuando hay varias, puedes recorrerlas con las
+flechas laterales, las teclas de dirección o deslizando horizontalmente en el celular.
+En el visor puedes acercar o alejar con los botones, la rueda del mouse o el gesto de
+pinza en pantallas táctiles; arrastra la imagen para desplazarte cuando está ampliada.
+
 ## Vista previa local
 
 Requiere Python 3.10 o superior:
