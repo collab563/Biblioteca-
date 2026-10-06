@@ -45,6 +45,25 @@
       .replace(/'/g, '&#39;');
   }
 
+  function normalizeSearchText(value) {
+    return String(value == null ? '' : value)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLocaleLowerCase();
+  }
+
+  function matchesBook(book, query) {
+    const searchableText = [
+      book.title,
+      book.author,
+      book.publisher,
+      book.isbn,
+      book.synopsis,
+      book.category,
+    ].join(' ');
+    return normalizeSearchText(searchableText).includes(query);
+  }
+
   function hideSuggestions() {
     if (!suggestions) return;
     suggestions.hidden = true;
@@ -53,10 +72,8 @@
 
   function renderSuggestions(books, query) {
     if (!suggestions) return;
-    const normalized = query.toLocaleLowerCase();
-    const matches = books.filter((book) =>
-      `${book.title} ${book.author}`.toLocaleLowerCase().includes(normalized)
-    ).slice(0, 8);
+    const normalized = normalizeSearchText(query);
+    const matches = books.filter((book) => matchesBook(book, normalized)).slice(0, 8);
 
     suggestions.innerHTML = matches.map((book) =>
       `<li class="search-suggestion is-suggestion" role="option">` +
@@ -129,11 +146,9 @@
     if (input) input.value = query;
     if (heading && query) heading.textContent = `Resultados para “${query}”`;
     booksPromise.then((books) => {
-      const normalized = query.trim().toLocaleLowerCase();
+      const normalized = normalizeSearchText(query.trim());
       const matches = normalized
-        ? books.filter((book) =>
-          `${book.title} ${book.author}`.toLocaleLowerCase().includes(normalized)
-        )
+        ? books.filter((book) => matchesBook(book, normalized))
         : [];
       results.innerHTML = matches.length
         ? matches.map(renderBookCard).join('')

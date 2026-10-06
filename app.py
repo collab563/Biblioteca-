@@ -94,6 +94,9 @@ def build_site():
             {
                 'title': book.title,
                 'author': book.author,
+                'publisher': book.publisher,
+                'isbn': book.isbn,
+                'synopsis': book.synopsis,
                 'category': book.category.name,
                 'category_icon': book.category.icon or '📁',
                 'status': book.status,
